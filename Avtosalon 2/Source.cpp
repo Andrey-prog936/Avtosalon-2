@@ -62,6 +62,35 @@ public:
 			Head = Head->next;
 		}
 	}
+	void Print(Auto* Head)
+	{
+		if (Head == nullptr)
+		{
+			cout << "List is empty!";
+		}
+		else
+		{
+			while (Head != nullptr)
+			{
+				cout << "Name: " << Head->name << "\nYear: " << Head->year << "\nEngine capacity: "
+					<< Head->capacity << "\nPrice: " << Head->price << endl << endl;
+				Head = Head->next;
+			}
+		}
+	}
+	bool FindYear(Auto* Head, int NumberItem)
+	{
+		Auto* linkk;
+		linkk = Head;
+		while (linkk != nullptr) {
+			if (NumberItem == linkk->year)
+			{
+				return true;
+			}
+			else linkk = linkk->next;
+		}
+		return false;
+	}
 };
 
 
