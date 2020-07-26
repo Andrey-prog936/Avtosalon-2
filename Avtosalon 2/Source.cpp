@@ -133,6 +133,23 @@ public:
 		}
 		cout << "No such year was found" << endl;
 	}
+	void FindPrice(Auto* Head) {
+		Auto* ptr;
+		ptr = Head;
+		int NumberItem = 0;
+		cout << "Input price: ";
+		cin >> NumberItem;
+		while (ptr != NULL)
+		{
+			if (NumberItem == ptr->price)
+			{
+				Show(ptr);
+				return;
+			}
+			else ptr = ptr->next;
+		}
+		cout << "No such price was found" << endl;
+	}
 };
 
 
