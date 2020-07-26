@@ -53,7 +53,15 @@ public:
 		}
 		return Head;
 	}
-
+	void DeleteAutoYearLess2000(Auto* Head)
+	{
+		while (Head->year < 2000)
+		{
+			DeleteAutoYearLess2000(Head->next);
+			delete Head;
+			Head = Head->next;
+		}
+	}
 };
 
 
