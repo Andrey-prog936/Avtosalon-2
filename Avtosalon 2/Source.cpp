@@ -150,11 +150,64 @@ public:
 		}
 		cout << "No such price was found" << endl;
 	}
+	void Delete(Auto* Head)
+	{
+		if (Head != NULL)
+		{
+			Delete(Head->next);
+			delete Head;
+		}
+	}
 };
 
 
 int main()
 {
+	AutoSalon tr;
+	Auto* Head = nullptr;
+	int n = 1, d;
+	do {
 
-    return 0;
+		cout << "1 - Add auto info to DB" << endl;
+		cout << "2 - Show DB" << endl;
+		cout << "3 - Show info about auto for year" << endl;
+		cout << "4 - Show info about auto for name" << endl;
+		cout << "5 - Exit!" << endl;
+		cout << "Please select: ";
+		cin >> d;
+		switch (d)
+		{
+		case 1:
+		{
+			Head = tr.AddAuto(Head, n);
+			n++;
+		}break;
+		case 2:
+		{
+			tr.Print(Head);
+		}break;
+		case 3:
+		{
+			tr.FindYear(Head);
+		}break;
+		case 4:
+		{
+			tr.FindName(Head);
+		}break;
+		case 5:
+		{
+			cout << "Goodbye" << endl;
+			tr.Delete(Head);
+			exit(0);
+		}break;
+
+		default:
+			cout << "Error" << endl;
+			break;
+		}
+		system("pause");
+		system("cls");
+	} while (d != 5);
+
+	return 0;
 }
