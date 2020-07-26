@@ -91,6 +91,31 @@ public:
 		}
 		return false;
 	}
+	void Show(Auto* Head)
+	{
+		cout << "Name: " << Head->name << "\nYear: " << Head->year << "\nEngine capacity: "
+			<< Head->capacity << "\nPrice: " << Head->price << endl << "~~~" << endl;
+	}
+	void FindName(Auto* Head)
+	{
+		Auto* ptr = Head;
+		string name = "";
+		cout << "Input name auto: ";
+		cin >> name;
+		while (ptr != nullptr)
+		{
+			if (name == ptr->name)
+			{
+				Show(ptr);
+				return;
+			}
+			else
+			{
+				ptr = ptr->next;
+			}
+		}
+		cout << "No such name was found" << endl;
+	}
 };
 
 
