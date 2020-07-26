@@ -116,6 +116,23 @@ public:
 		}
 		cout << "No such name was found" << endl;
 	}
+	void FindYear(Auto* Head) {
+		Auto* ptr;
+		ptr = Head;
+		int NumberItem = 0;
+		cout << "Input auto year: ";
+		cin >> NumberItem;
+		while (ptr != NULL)
+		{
+			if (NumberItem == ptr->year)
+			{
+				Show(ptr);
+				return;
+			}
+			else ptr = ptr->next;
+		}
+		cout << "No such year was found" << endl;
+	}
 };
 
 
